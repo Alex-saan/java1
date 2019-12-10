@@ -6,8 +6,6 @@ public class Astronomy {
         double eR = 6371.2;
         double mR = 2439.7;
         double jR = 71492;
-
-
         earthSquare(eR);
         mercurySquare(mR);
         jupiterSquare(jR);
@@ -40,4 +38,3 @@ public class Astronomy {
         return earthSquare(x) / jupiterSquare(y);
     }
 }
-

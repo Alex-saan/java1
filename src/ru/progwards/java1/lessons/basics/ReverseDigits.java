@@ -4,7 +4,6 @@ public class ReverseDigits {
     public static void main(String[] args) {
         reverseDigits(123);
     }
-
     public static int reverseDigits(int number) {
         int result = 0;
         do {
