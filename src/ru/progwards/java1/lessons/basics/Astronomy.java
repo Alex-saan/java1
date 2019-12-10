@@ -15,7 +15,7 @@ public class Astronomy {
 
     public static Double sphereSquare(Double r) {
         double pi = 3.14;
-        return 4 * pi * Math.pow(r, 2);
+        return (double) 4 * pi * Math.pow(r, 2);
     }
 
     public static Double earthSquare(Double r) {
