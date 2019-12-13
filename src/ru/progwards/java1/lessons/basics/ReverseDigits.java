@@ -8,9 +8,9 @@ public class ReverseDigits {
         int result = 0;
         do {
             result = result * 10 + number % 10;
-            System.out.println(result);
         }
         while ((number /= 10) != 0);
+        System.out.println(number);
         return result;
     }
 }
