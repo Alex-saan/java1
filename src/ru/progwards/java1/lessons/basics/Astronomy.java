@@ -3,14 +3,12 @@ package ru.progwards.java1.lessons.basics;
 public class Astronomy {
 
     public static void main(String[] args) {
-        double eR = 6371.2;
-        double mR = 2439.7;
-        double jR = 71492;
-        earthSquare(eR);
-        mercurySquare(mR);
-        jupiterSquare(jR);
-        earthVsMercury(earthSquare(eR), mercurySquare(mR));
-        earthVsJupiter(earthSquare(eR), jupiterSquare(jR));
+
+        earthSquare();
+        mercurySquare();
+        jupiterSquare();
+        System.out.println(earthVsMercury());
+        System.out.println(earthVsJupiter());
     }
 
     public static Double sphereSquare(Double r) {
@@ -18,23 +16,23 @@ public class Astronomy {
         return (double) 4 * pi * Math.pow(r, 2);
     }
 
-    public static Double earthSquare(Double r) {
-        return sphereSquare(r);
+    public static Double earthSquare() {
+        return sphereSquare(6371.2);
     }
 
-    public static Double mercurySquare(Double r) {
-        return sphereSquare(r);
+    public static Double mercurySquare() {
+        return sphereSquare(2439.7);
     }
 
-    public static Double jupiterSquare(Double r) {
-        return sphereSquare(r);
+    public static Double jupiterSquare() {
+        return sphereSquare((double) 71492);
     }
 
-    public static Double earthVsMercury(double x, double y) {
-        return earthSquare(x) / mercurySquare(y);
+    public static Double earthVsMercury() {
+        return earthSquare() / mercurySquare();
     }
 
-    public static Double earthVsJupiter(double x, double y) {
-        return earthSquare(x) / jupiterSquare(y);
+    public static Double earthVsJupiter() {
+        return earthSquare() / jupiterSquare();
     }
 }
