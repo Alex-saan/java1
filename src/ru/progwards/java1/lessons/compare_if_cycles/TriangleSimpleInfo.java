@@ -5,7 +5,6 @@ public class TriangleSimpleInfo {
         maxSide(5, 8, 9);
         minSide(2, 1, 0);
         isEquilateralTriangle(2, 2, 2);
-        isEquilateralTriangle(1, 2, 1);
     }
 
     public static int maxSide(int a, int b, int c) {
@@ -27,6 +26,6 @@ public class TriangleSimpleInfo {
     }
 
     public static boolean isEquilateralTriangle(int a, int b, int c) {
-        return (a == b || b == c || a == c);
+        return (a == b && b == c);
     }
 }
