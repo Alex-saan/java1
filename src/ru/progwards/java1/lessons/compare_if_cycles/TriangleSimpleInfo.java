@@ -8,18 +8,20 @@ public class TriangleSimpleInfo {
     }
 
     public static int maxSide(int a, int b, int c) {
-        if (b < a && c < a) {
+        if (b <= a && c <= a) {
             return a;
-        } else if (a < b && c < b) {
+        }
+        if (a <= b && c <= b) {
             return b;
-        } else
-            return c;
+        }
+        return c;
     }
 
     public static int minSide(int a, int b, int c) {
-        if (b > a && c > a) {
+        if (b >= a && c >= a) {
             return a;
-        } else if (a > b && c > b) {
+        }
+        if (a >= b && c >= b) {
             return b;
         } else
             return c;

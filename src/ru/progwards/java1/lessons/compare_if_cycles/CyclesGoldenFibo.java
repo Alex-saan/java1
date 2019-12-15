@@ -53,7 +53,7 @@ public class CyclesGoldenFibo {
     }
 
     public static boolean isGoldenTriangle(int a, int b, int c) {
-        //System.out.println((float) a / (float) c);
+
         if ((a == b) && (1.61703 < (float) a / (float) c && (float) a / (float) c < 1.61903)) {
             return true;
         }
