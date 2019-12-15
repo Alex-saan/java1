@@ -7,14 +7,14 @@ public class CyclesGoldenFibo {
             System.out.print(fiboNumber(i) + " ");
         }
 
-//        for (int i = 1; i <= 100; i++) {
-//            for (int j = 1; j < 100; j++) {
-//
-//                if (isGoldenTriangle(i, j, j)) {
-//                    System.out.println(j + " " + i + " " + i);
-//                }
-//            }
-//        }
+        for (int i = 1; i <= 100; i++) {
+            for (int j = 1; j < 100; j++) {
+
+                if (isGoldenTriangle(i, j, j)) {
+                    System.out.println(j + " " + i + " " + i);
+                }
+            }
+        }
         containsDigit(123, 2);
         fiboNumber(10);
         isGoldenTriangle(0, 0, 0);
@@ -53,7 +53,7 @@ public class CyclesGoldenFibo {
     }
 
     public static boolean isGoldenTriangle(int a, int b, int c) {
-        if(a==0 || b ==0||c==0){
+        if (a == 0 || b == 0 || c == 0) {
             return false;
         }
         if ((a == b) && (1.61703 < (float) a / (float) c && (float) a / (float) c < 1.61903)) {
