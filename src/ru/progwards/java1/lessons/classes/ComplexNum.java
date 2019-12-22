@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.classes;
 
-import ru.progwards.alex.Calculator;
-
 public class ComplexNum {
     int a;
     int b;
@@ -36,6 +34,6 @@ public class ComplexNum {
     public static void main(String[] args) {
         ComplexNum num = new ComplexNum(1, 1);
         ComplexNum num1 = new ComplexNum(2, 2);
-        //System.out.println(num1.sub(num).toString());
+        //System.out.println(num.sub(num1).toString());
     }
 }

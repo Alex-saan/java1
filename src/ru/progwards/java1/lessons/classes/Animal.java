@@ -6,13 +6,16 @@ public class Animal {
         Cow b = new Cow(55.55);
         Hamster h = new Hamster(1.1);
         Duck u = new Duck(3.3);
+
+        System.out.println(h.weight);
         printinfo(b);
         printinfo(h);
         printinfo(u);
     }
-    public static void printinfo (Animal animal){
+
+    public static void printinfo(Animal animal) {
+        //System.out.println(animal.toString());
         System.out.println(animal.toString());
-        System.out.println(animal.toStringFull());
 
     }
 
