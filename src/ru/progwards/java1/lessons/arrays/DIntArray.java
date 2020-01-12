@@ -12,18 +12,21 @@ public class DIntArray {
     public void add(int num) {
         int[] massNew = Arrays.copyOf(mass, mass.length + 1);
         massNew[massNew.length - 1] = num;
+        mass = Arrays.copyOf(mass, mass.length + 1);
     }
 
     public void atInsert(int pos, int num) {
-        int[] massNew1 = new int[mass.length + 1];
-        System.arraycopy(mass, 0, massNew1, 0, massNew1.length);
-        massNew1[pos] = num;
-        System.arraycopy(mass, pos, massNew1, pos + 1, massNew1.length);
+        int[] massNew = new int[mass.length + 1];
+        System.arraycopy(mass, 0, massNew, 0, massNew.length);
+        massNew[pos] = num;
+        System.arraycopy(mass, pos, massNew, pos + 1, massNew.length);
+        mass = Arrays.copyOf(mass, mass.length + 1);
     }
 
     public void atDelete(int pos) {
-        int[] massNew2 = new int[mass.length - 1];
-        System.arraycopy(mass, pos, massNew2, pos - 1, massNew2.length);
+        int[] massNew = new int[mass.length - 1];
+        System.arraycopy(mass, pos, massNew, pos - 1, massNew.length);
+        mass = Arrays.copyOf(mass, mass.length + 1);
     }
 
     public int at(int pos) {
