@@ -17,7 +17,7 @@ public class DIntArray {
 
     public void atInsert(int pos, int num) {
         int[] massNew = new int[mass.length + 1];
-        System.arraycopy(mass, 0, massNew, 0, massNew.length);
+        System.arraycopy(mass, 0, massNew, 0, mass.length);
         massNew[pos] = num;
         System.arraycopy(mass, pos, massNew, pos + 1, mass.length - pos);
         mass = Arrays.copyOf(massNew, massNew.length);
