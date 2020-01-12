@@ -19,7 +19,7 @@ public class DIntArray {
         int[] massNew = new int[mass.length + 1];
         System.arraycopy(mass, 0, massNew, 0, massNew.length);
         massNew[pos] = num;
-        System.arraycopy(mass, pos, massNew, pos + 1, massNew.length - pos);
+        System.arraycopy(mass, pos, massNew, pos + 1, massNew.length - pos - 1);
         mass = Arrays.copyOf(massNew, massNew.length);
     }
 
