@@ -25,7 +25,8 @@ public class DIntArray {
 
     public void atDelete(int pos) {
         int[] massNew = new int[mass.length - 1];
-        System.arraycopy(mass, pos, massNew, pos - 1, mass.length - pos - 1);
+        System.arraycopy(mass, 0, massNew, 0, mass.length - 1);
+        System.arraycopy(mass, pos + 1, massNew, pos, mass.length - pos - 1);
         mass = Arrays.copyOf(massNew, massNew.length);
     }
 
