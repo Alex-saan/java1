@@ -1,17 +1,17 @@
 package ru.progwards.java1.lessons.interfaces;
 
-public class Food implements CompareWeight{
+public class Food implements CompareWeight {
     private int weight;
 
     Food(int weight) {
-        this.weight=weight;
+        this.weight = weight;
     }
 
     public int getWeight() {
         return weight;
     }
 
-    @Override
+        @Override
     public CompareResult compareWeight(CompareWeight smthHasWeigt) {
         if (this.weight == ((Food) smthHasWeigt).weight)
             return CompareResult.EQUAL;
@@ -19,6 +19,10 @@ public class Food implements CompareWeight{
             return CompareResult.LESS;
         return CompareResult.GREATER;
     }
+
+//    public CompareResult compareWeight(CompareWeight smthHasWeight){
+//        return ((Animal)this.weight).compareTo((Animal)smthHasWeight)==0);
+//    }
 
 }
 

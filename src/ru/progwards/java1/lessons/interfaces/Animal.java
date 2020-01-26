@@ -1,28 +1,27 @@
 package ru.progwards.java1.lessons.interfaces;
 
 public class Animal implements FoodCompare, CompareWeight, Comparable<Animal> {
-    public static void main(String[] args) {
 
-        Cow b = new Cow(55.55);
-        Hamster h = new Hamster(1.1);
-        Duck u = new Duck(3.3);
+    double weight;
 
-        System.out.println(h.weight);
-//        printinfo(b);
-//        printinfo(h);
-//        printinfo(u);
-
+    public Animal(double weight) {
+        this.weight = weight;
     }
 
-
     @Override
-    public CompareResult compareWeight(CompareWeight smthHasWeigt) {
-        if (getWeight() == ((Animal) smthHasWeigt).getWeight())
+    public CompareResult compareWeight(CompareWeight smthHasWeight) {
+        if (getWeight() == ((Animal) smthHasWeight).getWeight())
             return CompareResult.EQUAL;
-        if (getWeight() < ((Animal) smthHasWeigt).getWeight())
+        if (getWeight() < ((Animal) smthHasWeight).getWeight())
             return CompareResult.LESS;
         return CompareResult.GREATER;
     }
+//    public CompareResult compareWeight(CompareWeight smthHasWeight){
+//        switch (compareTo()){
+//            case 0: return EQUAL;
+//
+//        }
+//    }
 
     @Override
     public boolean equals(Object anObject) {
@@ -60,12 +59,6 @@ public class Animal implements FoodCompare, CompareWeight, Comparable<Animal> {
         System.out.println(animal.toString());
     }
 
-    double weight;
-
-    public Animal(double weight) {
-        this.weight = weight;
-    }
-
     public double getWeight() {
         return weight;
     }
@@ -83,10 +76,10 @@ public class Animal implements FoodCompare, CompareWeight, Comparable<Animal> {
     }
 
     @Override
-    public int compareTo(Animal o) {
-        if(this.getWeight() == o.getWeight())
+    public int compareTo(Animal animal) {
+        if(this.getWeight() == animal.getWeight())
             return 0;
-        if (this.getWeight() < o.getWeight())
+        if (this.getWeight() < animal.getWeight())
             return -1;
         return 1;
     }
@@ -173,5 +166,18 @@ class Duck extends Animal {
     public double getFoodCoeff() {
         return 0.04;
     }
+
+    public static void main(String[] args) {
+
+        Cow b = new Cow(55.55);
+        Hamster h = new Hamster(1.1);
+        Duck u = new Duck(3.3);
+
+        System.out.println(h.weight);
+//        printinfo(b);
+//        printinfo(h);
+//        printinfo(u);
+    }
+
 
 }

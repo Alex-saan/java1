@@ -8,6 +8,6 @@ public interface CompareWeight {
         GREATER;
     }
 
-    public CompareResult compareWeight(CompareWeight smthHasWeigt);
+    public CompareResult compareWeight(CompareWeight smthHasWeight);
 }
 
