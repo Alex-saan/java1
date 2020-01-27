@@ -34,7 +34,7 @@ public class CalculateFibonacci {
                 a = b;
                 b = c;
             }
-            lastFibo = new CacheInfo(n, c);
+            //lastFibo = new CacheInfo(n, c);
             return c;
         }
     }
@@ -48,8 +48,7 @@ public class CalculateFibonacci {
     }
 
     public static void main(String[] args) {
-        lastFibo = new CacheInfo(15, 200);
-        //System.out.println(fiboNumber(15));
-        System.out.println(fiboNumber(15));
+        lastFibo = new CacheInfo(29, 200);
+        System.out.println(fiboNumber(29));
     }
 }
