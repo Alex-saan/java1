@@ -34,7 +34,7 @@ public class CalculateFibonacci {
                 a = b;
                 b = c;
             }
-            //lastFibo = new CacheInfo(n, c);
+            lastFibo = new CacheInfo(n, c);
             return c;
         }
     }
