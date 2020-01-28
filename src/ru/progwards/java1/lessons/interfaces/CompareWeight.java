@@ -8,8 +8,7 @@ public interface CompareWeight {
         GREATER;
     }
 
-    //public double getWeight();
+    public double getWeight();
 
     public CompareResult compareWeight(CompareWeight smthHasWeight);
 }
-
