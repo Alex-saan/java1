@@ -12,19 +12,17 @@ public class CalculateFibonacci {
             this.fibo = fibo;
         }
     }
+
     //В статической функции fiboNumber, проверять параметр n на совпадение с последним рассчитанным значением,
     //и если совпадает - возвращать уже готовый результат. Если не совпадает - рассчитывать и сохранять в статической переменной lastFibo
     public static int fiboNumber(int n) {
+        int res = 1;
         if (lastFibo != null)
             if (lastFibo.n == n) {
                 return lastFibo.fibo;
             }
-        if (n == 1) {
-            return 1;
-        }
-        if (n == 2) {
-            return 1;
-        } else {
+
+        if (n != 1 && n != 2) {
             int a = 1;
             int b = 1;
             int c = 0;
@@ -33,9 +31,10 @@ public class CalculateFibonacci {
                 a = b;
                 b = c;
             }
-            lastFibo = new CacheInfo(n, c);
-            return c;
+            res= c;
         }
+        lastFibo = new CacheInfo(n, res);
+        return res;
     }
 
     public static CacheInfo getLastFibo() {
@@ -47,7 +46,7 @@ public class CalculateFibonacci {
     }
 
     public static void main(String[] args) {
-        lastFibo = new CacheInfo(20, 200);
-        System.out.println(fiboNumber(10));
+        lastFibo = new CacheInfo(1, 1);
+        System.out.println(fiboNumber(1));
     }
 }

@@ -10,18 +10,13 @@ public class Animal implements FoodCompare, CompareWeight, Comparable<Animal> {
 
     @Override
     public CompareResult compareWeight(CompareWeight smthHasWeight) {
-        if (getWeight() == ((Animal) smthHasWeight).getWeight())
+        if (this.getWeight() == smthHasWeight.getWeight())
             return CompareResult.EQUAL;
-        if (getWeight() < ((Animal) smthHasWeight).getWeight())
+        if (this.getWeight() < smthHasWeight.getWeight())
             return CompareResult.LESS;
         return CompareResult.GREATER;
+
     }
-//    public CompareResult compareWeight(CompareWeight smthHasWeight){
-//        switch (compareTo()){
-//            case 0: return EQUAL;
-//
-//        }
-//    }
 
     @Override
     public boolean equals(Object anObject) {
@@ -77,11 +72,7 @@ public class Animal implements FoodCompare, CompareWeight, Comparable<Animal> {
 
     @Override
     public int compareTo(Animal animal) {
-        if(this.getWeight() == animal.getWeight())
-            return 0;
-        if (this.getWeight() < animal.getWeight())
-            return -1;
-        return 1;
+        return Double.compare(this.getWeight(), animal.weight);
     }
 
     enum AnimalKind {
