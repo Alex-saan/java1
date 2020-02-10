@@ -2,7 +2,6 @@ package ru.progwards.java1.lessons.bigints;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.SortedMap;
 
 import static java.math.BigInteger.valueOf;
 
@@ -25,7 +24,7 @@ public class BigAlgebra {
         return num.multiply(num1);
     }
 
-/*    public static BigInteger fibonacci(int n) {
+    public static BigInteger fibonacci(int n) {
         BigInteger a = new BigInteger("1");
         BigInteger b = new BigInteger("1");
         BigInteger c = new BigInteger("0");
@@ -43,10 +42,10 @@ public class BigAlgebra {
             }
             return (c);
         }
-    }*/
+    }
 
     public static void main(String[] args) {
         //System.out.println(fibonacci(99));
-        System.out.println(fastPow(BigDecimal.valueOf(2), 11));
+        //System.out.println(fastPow(BigDecimal.valueOf(2), 11));
     }
 }
