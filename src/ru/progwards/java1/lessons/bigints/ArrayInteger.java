@@ -25,10 +25,11 @@ public class ArrayInteger {
     BigInteger toInt() {
         String str = "";
         for (int i = 0; i < digits.length; i++)
-            str += digits[i] + "";
+            str = digits[i] + str;
 
         return new BigInteger(str);
     }
+
     //сложить 2 числа, не используя BigInteger, а  используя массив digits, результат поместить в экземпляр ArrayInteger,
 // у которого был вызван метод. При переполнении вернуть false, при этом само число сбросить в 0
     boolean add(ArrayInteger num) {
@@ -42,25 +43,28 @@ public class ArrayInteger {
             if (i < num.digits.length) {
                 x = (byte) ((this.digits[i] + num.digits[i] + y) % 10);
                 y = (byte) ((this.digits[i] + num.digits[i]) / 10);
-            } else
+                this.digits[i] = x;
+            } else if (y > 0) {
                 x = (byte) ((this.digits[i] + y) % 10);
-
-            y = (byte) ((this.digits[i] + y) / 10);
-            this.digits[i] = x;
+                y = (byte) (this.digits[i] / 10);
+                this.digits[i] = x;
+            }
         }
         if (y > 0) {
             Arrays.fill(this.digits, (byte) 0);
             return false;
         }
+        System.out.println(Arrays.toString(digits));
         return true;
     }
 
     public static void main(String[] args) {
-        ArrayInteger dig = new ArrayInteger(4);
-        dig.fromInt(new BigInteger("9999"));
-        ArrayInteger dig1 = new ArrayInteger(4);
-        dig1.fromInt(new BigInteger("9999"));
+        ArrayInteger dig = new ArrayInteger(8);
+        dig.fromInt(new BigInteger("16594535")); //16634818
+        ArrayInteger dig1 = new ArrayInteger(5);
+        dig1.fromInt(new BigInteger("40283"));
         System.out.println(dig.add(dig1));
+        System.out.println(dig.toInt());
     }
 }
 
