@@ -29,7 +29,6 @@ public class ArrayInteger {
         }
         return new BigInteger(str);
     }
-
     //сложить 2 числа, не используя BigInteger, а  используя массив digits, результат поместить в экземпляр ArrayInteger,
 // у которого был вызван метод. При переполнении вернуть false, при этом само число сбросить в 0
     boolean add(ArrayInteger num) {
@@ -62,7 +61,6 @@ public class ArrayInteger {
         ArrayInteger dig1 = new ArrayInteger(4);
         dig1.fromInt(new BigInteger("9999"));
         System.out.println(dig.add(dig1));
-
     }
 }
 
