@@ -24,9 +24,8 @@ public class ArrayInteger {
 
     BigInteger toInt() {
         String str = "";
-        for (int i = 0; i < digits.length; i++)
+        for (int i = 0; i < this.digits.length; i++)
             str = digits[i] + str;
-
         return new BigInteger(str);
     }
 
