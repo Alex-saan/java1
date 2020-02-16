@@ -12,7 +12,7 @@ public class BigAlgebra {
 
         BigDecimal num1 = BigDecimal.ONE;
         while (1 < pow) {
-            System.out.println(pow);
+
             if (pow % 2 == 0) {
                 num = num.multiply(num);
                 pow /= 2;
@@ -46,6 +46,6 @@ public class BigAlgebra {
 
     public static void main(String[] args) {
         //System.out.println(fibonacci(99));
-        //System.out.println(fastPow(BigDecimal.valueOf(2), 11));
+        System.out.println(fastPow(BigDecimal.valueOf(2), 11));
     }
 }

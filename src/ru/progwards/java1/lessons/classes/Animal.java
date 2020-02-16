@@ -13,8 +13,15 @@ public class Animal {
         printinfo(u);
     }
 
+    @Override
+    public boolean equals(Object anObject) {
+        if (this == anObject) return true;
+        if (anObject == null || anObject.getClass() != getClass()) return false;
+        Animal an = (Animal) anObject;
+        return Double.compare(an.weight, weight) == 0;
+    }
+
     public static void printinfo(Animal animal) {
-        //System.out.println(animal.toString());
         System.out.println(animal.toString());
 
     }

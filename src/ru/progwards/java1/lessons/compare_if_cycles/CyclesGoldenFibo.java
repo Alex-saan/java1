@@ -1,12 +1,10 @@
 package ru.progwards.java1.lessons.compare_if_cycles;
 
-
-
 public class CyclesGoldenFibo {
     public static void main(String[] args) {
         int n = 15;
         for (int i = 1; i <= n; i++) {
-            //System.out.print(fiboNumber(i) + " ");
+            System.out.print(fiboNumber(i) + " ");
         }
 
         for (int i = 1; i <= 100; i++) {
@@ -18,7 +16,7 @@ public class CyclesGoldenFibo {
         }
         containsDigit(0, 0);
         fiboNumber(10);
-        System.out.println(isGoldenTriangle(89, 89, 55));
+        isGoldenTriangle(89, 89, 55);
     }
 
     public static boolean containsDigit(int number, int digit) {

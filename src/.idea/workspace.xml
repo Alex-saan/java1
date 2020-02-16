@@ -1,26 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0027b7a-9950-4fc3-99b5-c9a99e30ebca" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="b0027b7a-9950-4fc3-99b5-c9a99e30ebca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ru/progwards/ByteValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/AnimalProp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Calculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/ClassesPerson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Eating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Fibo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Goat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Golden.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/GradeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Mass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/MassMax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Point2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/RectangleHash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/alex/Speaking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/java1/lessons/interfaces/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/java1/lessons/interfaces/CalculateFibonacci.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ru/progwards/java1/lessons/interfaces/FoodCompare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ProgWards/ru/progwards/alex/HelloWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ProgWards/ru/progwards/alex/HelloWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/ProgWards/ru/progwards/java1/lessons/basics/AccuracyDoubleFloat.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/ProgWards/ru/progwards/java1/lessons/basics/AccuracyDoubleFloat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/progwards/alex/Factorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/progwards/alex/Factorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/progwards/alex/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/progwards/alex/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/progwards/java1/lessons/arrays/ArraySort.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/progwards/java1/lessons/arrays/ArraySort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/progwards/java1/lessons/bitsworld/Binary.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/progwards/java1/lessons/bitsworld/Binary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/progwards/java1/lessons/classes/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/progwards/java1/lessons/classes/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ru/progwards/java1/lessons/compare_if_cycles/CyclesGoldenFibo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ru/progwards/java1/lessons/compare_if_cycles/CyclesGoldenFibo.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1U69ftyObfY8GAEtzEQ4vsYhvrH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../HellApp/src/java" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>

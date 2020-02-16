@@ -16,7 +16,6 @@ public class ArraySort {
                     a[i] = a[j];
                     a[j] = tmp;
                 }
-                System.out.println(Arrays.toString(a));
             }
         }
     }

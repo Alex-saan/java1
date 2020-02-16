@@ -9,7 +9,7 @@ public class Binary {
     }
 
     public static void main(String[] args) {
-        Binary b = new Binary((byte) -128);
+        Binary b = new Binary((byte) 27);
         System.out.println(b.toString());
     }
 
