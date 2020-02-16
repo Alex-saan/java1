@@ -37,16 +37,20 @@ public class ArrayInteger {
             return false;
         }
         byte y = 0;
-        byte x = 0;
+        byte x;
         for (int i = 0; i < this.digits.length; i++) {
             if (i < num.digits.length) {
-                x = (byte) ((this.digits[i] + num.digits[i] + y) % 10);
-                y = (byte) ((this.digits[i] + num.digits[i]) / 10);
+                x = (byte) (((this.digits[i] + num.digits[i] + y) % 10));
+                y = (byte) ((this.digits[i] + num.digits[i] + y) / 10);
+//                y = (byte) (x / 10);
                 this.digits[i] = x;
-            } else if (y > 0) {
-                x = (byte) ((this.digits[i] + y) % 10);
-                y = (byte) (this.digits[i] / 10);
-                this.digits[i] = x;
+            } else {
+                if (y > 0) {
+                    x = (byte) ((this.digits[i] + y) % 10);
+                    y = (byte) ((this.digits[i] + y) / 10);
+                    this.digits[i] = x;
+                    System.out.println(y);
+                }
             }
         }
         if (y > 0) {
@@ -58,10 +62,10 @@ public class ArrayInteger {
     }
 
     public static void main(String[] args) {
-        ArrayInteger dig = new ArrayInteger(8);
-        dig.fromInt(new BigInteger("16594535")); //16634818
-        ArrayInteger dig1 = new ArrayInteger(5);
-        dig1.fromInt(new BigInteger("40283"));
+        ArrayInteger dig = new ArrayInteger(7);
+        dig.fromInt(new BigInteger("9999999")); //4702189
+        ArrayInteger dig1 = new ArrayInteger(6);
+        dig1.fromInt(new BigInteger("999999"));
         System.out.println(dig.add(dig1));
         System.out.println(dig.toInt());
     }
