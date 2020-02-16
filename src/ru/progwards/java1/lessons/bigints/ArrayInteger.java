@@ -24,9 +24,9 @@ public class ArrayInteger {
 
     BigInteger toInt() {
         String str = "";
-        for (int i = 0; i < digits.length; i++) {
+        for (int i = 0; i < digits.length; i++)
             str += digits[i] + "";
-        }
+
         return new BigInteger(str);
     }
     //сложить 2 числа, не используя BigInteger, а  используя массив digits, результат поместить в экземпляр ArrayInteger,
@@ -56,8 +56,8 @@ public class ArrayInteger {
     }
 
     public static void main(String[] args) {
-        ArrayInteger dig = new ArrayInteger(3);
-        dig.fromInt(new BigInteger("999"));
+        ArrayInteger dig = new ArrayInteger(4);
+        dig.fromInt(new BigInteger("9999"));
         ArrayInteger dig1 = new ArrayInteger(4);
         dig1.fromInt(new BigInteger("9999"));
         System.out.println(dig.add(dig1));
