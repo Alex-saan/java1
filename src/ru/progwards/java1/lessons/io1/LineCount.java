@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class LineCount {
-    public static int calcEmpty(String fileName) throws IOException {
+    public static int calcEmpty(String fileName) {
         int count;
         try {
             FileReader fr = new FileReader(fileName);
@@ -13,14 +13,14 @@ public class LineCount {
             count = 0;
             while (scan.hasNext()) {
                 scan.next();
-                if (scan.next().length() == 0) {
+                if (scan.next().isEmpty()) {
                     count++;
                 }
                 fr.close();
                 scan.close();
             }
         } catch (Exception e) {
-            return -1;
+            count = -1;
         }
         return count;
     }

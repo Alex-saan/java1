@@ -12,8 +12,8 @@ public class Coder {
             FileWriter oF = new FileWriter(outFileName);
             String y = "";
             try {
-                while (scan.hasNext()) {
-                    char[] x = scan.next().toCharArray();
+                while (scan.hasNextLine()) {
+                    char[] x = scan.nextLine().toCharArray();
                     for (int i = 0; i < x.length; i++) {
                         y += code[(int) x[i]];
                     }
@@ -41,7 +41,6 @@ public class Coder {
             }
         }
     }
-
     public static void main(String[] args) {
         String Doc1 = "f:/Java/Doc1.txt";
         String Doc2 = "f:/Java/Doc2.txt";
@@ -50,12 +49,4 @@ public class Coder {
         codeFile(Doc1, Doc2, code, DocLog);
 
     }
-
-//    public static void main(String[] args) {
-//        String inFile = "C:/csbin1.txt";
-//        String outFile = "C:/csbout.txt";
-//        char[] codeFile = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
-//        String logFile = "C:/csb.log";
-//        codeFile(inFile, outFile, codeFile, logFile);
-//    }
 }
