@@ -11,18 +11,18 @@ public class CharFilter {
             FileReader iF = new FileReader(inFileName);
             Scanner scan = new Scanner(iF);
             FileWriter oF = new FileWriter(outFileName);
-
             try {
                 while (scan.hasNext()) {
                     char[] x = scan.next().toCharArray();
-                    for (int i = 0; i < x.length; i++) {
-                        String[] y = new String[filter.length()];
-                        //if (x[i] == y[i]){
-                        if (String.valueOf(x[i]).compareToIgnoreCase(String.valueOf(y[i])) != 0) {
-                            x[i] = ' ';
+                    String[] y = new String[filter.length()];
+                    for (int i = 0; i < y.length; i++) {
+                        for (int j = 0; j < x.length; j++) {
+                            if (Arrays.toString(y).compareTo(Arrays.toString(x)) != 0) {
+                                y[j] = String.valueOf(x[j]);
+                            }
                         }
                     }
-                    oF.write(x);
+                    oF.write(String.valueOf(y));
                 }
             } finally {
                 scan.close();
@@ -30,7 +30,7 @@ public class CharFilter {
                 oF.close();
             }
         } catch (Exception e) {
-            System.out.println();
+            System.out.println(e.getMessage());
         }
         return inFileName;
     }
@@ -39,8 +39,5 @@ public class CharFilter {
         String Doc1 = "f:/Java/Doc1.txt";
         String Doc2 = "f:/Java/Doc2.txt";
         System.out.println(filterFile(Doc1, Doc2, " -,.()"));
-
     }
 }
-
-

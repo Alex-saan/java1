@@ -20,7 +20,7 @@ public class LineCount {
                 scan.close();
             }
         } catch (Exception e) {
-            throw new IOException("-1");
+            return -1;
         }
         return count;
     }

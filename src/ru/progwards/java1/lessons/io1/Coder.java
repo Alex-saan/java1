@@ -2,7 +2,6 @@ package ru.progwards.java1.lessons.io1;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Coder {
@@ -16,11 +15,13 @@ public class Coder {
                 while (scan.hasNext()) {
                     char[] x = scan.next().toCharArray();
                     for (int i = 0; i < x.length; i++) {
-                        System.out.println((int) x[i]);
                         y += code[(int) x[i]];
                     }
+                    oF.write(y);
                     y = "";
-                    oF.write(Arrays.toString(x));
+                    if(scan.hasNext()){
+                        oF.write("\n");
+                    }
                 }
             } finally {
                 scan.close();
@@ -45,7 +46,16 @@ public class Coder {
         String Doc1 = "f:/Java/Doc1.txt";
         String Doc2 = "f:/Java/Doc2.txt";
         String DocLog = "f:/Java/DocLog.txt";
-        char[] code = {};
+        char[] code = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         codeFile(Doc1, Doc2, code, DocLog);
+
     }
+
+//    public static void main(String[] args) {
+//        String inFile = "C:/csbin1.txt";
+//        String outFile = "C:/csbout.txt";
+//        char[] codeFile = new char[]{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+//        String logFile = "C:/csb.log";
+//        codeFile(inFile, outFile, codeFile, logFile);
+//    }
 }
