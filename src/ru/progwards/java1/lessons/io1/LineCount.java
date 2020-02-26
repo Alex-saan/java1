@@ -25,7 +25,7 @@ public class LineCount {
     }
 
     public static void main(String[] args) {
-        String Doc2 = "f:/Java/Doc2.txt";
+        String Doc2 = "f:/Java/Doc1.txt";
         System.out.println(calcEmpty(Doc2));
     }
 }

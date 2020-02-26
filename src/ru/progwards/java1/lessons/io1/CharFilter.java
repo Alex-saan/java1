@@ -16,7 +16,7 @@ public class CharFilter {
                 while (scan.hasNextLine()) {
                     String[] x = new String[scan.nextLine().length()];
                     String[] y = new String[filter.length()];
-                    System.out.println(Arrays.toString(x));
+                    System.out.println(Arrays.toString(y));
                     for (int i = 0; i < y.length; i++) {
                         for (int j = 0; j < x.length; j++) {
                             if (x[i] == y[i]) {
@@ -24,8 +24,8 @@ public class CharFilter {
                             }
                         }
                     }
-                    oF.write(z);
                 }
+                oF.write(z);
             } finally {
                 scan.close();
                 iF.close();
