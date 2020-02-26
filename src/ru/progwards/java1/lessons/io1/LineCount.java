@@ -14,7 +14,6 @@ public class LineCount {
                 if (scan.nextLine().isEmpty()) {
                     count++;
                 }
-                System.out.println(count);
             }
             fr.close();
             scan.close();
@@ -23,7 +22,6 @@ public class LineCount {
         }
         return count;
     }
-
     public static void main(String[] args) {
         String Doc2 = "f:/Java/Doc1.txt";
         System.out.println(calcEmpty(Doc2));

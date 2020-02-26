@@ -2,6 +2,7 @@ package ru.progwards.java1.lessons.io1;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Coder {
@@ -14,14 +15,16 @@ public class Coder {
             try {
                 while (scan.hasNextLine()) {
                     char[] x = scan.nextLine().toCharArray();
+                    int z = x.length;
                     for (int i = 0; i < x.length; i++) {
                         y += code[(int) x[i]];
+                        System.out.println(Arrays.toString(x));
                     }
                     oF.write(y);
-                    y = "";
-                    if(scan.hasNext()){
-                        oF.write("\n");
-                    }
+//                    y = "";
+//                    if (scan.hasNext()) {
+//                        oF.write("\n");
+//                    }
                 }
             } finally {
                 scan.close();
@@ -41,11 +44,12 @@ public class Coder {
             }
         }
     }
+
     public static void main(String[] args) {
         String Doc1 = "f:/Java/Doc1.txt";
         String Doc2 = "f:/Java/Doc2.txt";
         String DocLog = "f:/Java/DocLog.txt";
-        char[] code = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+        char[] code = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         codeFile(Doc1, Doc2, code, DocLog);
     }
 }

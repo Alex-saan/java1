@@ -40,6 +40,6 @@ public class CharFilter {
     public static void main(String[] args) throws Exception {
         String Doc1 = "f:/Java/Doc1.txt";
         String Doc2 = "f:/Java/Doc2.txt";
-        System.out.println(filterFile(Doc1, Doc2, " -,.()"));
+        filterFile(Doc1, Doc2, " -,.()");
     }
 }
