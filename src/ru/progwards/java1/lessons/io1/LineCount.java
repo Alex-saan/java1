@@ -11,14 +11,13 @@ public class LineCount {
             Scanner scan = new Scanner(fr);
             count = 0;
             while (scan.hasNextLine()) {
-                scan.next();
                 if (scan.nextLine().isEmpty()) {
                     count++;
                 }
-                scan.close();
-                fr.close();
                 System.out.println(count);
             }
+            fr.close();
+            scan.close();
         } catch (Exception e) {
             return -1;
         }
@@ -30,5 +29,3 @@ public class LineCount {
         System.out.println(calcEmpty(Doc2));
     }
 }
-
-
