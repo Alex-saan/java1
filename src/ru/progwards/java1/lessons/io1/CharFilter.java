@@ -24,7 +24,7 @@ public class CharFilter {
                             }
                         }
                     }
-                    oF.write(String.valueOf(z));
+                    oF.write(z);
                 }
             } finally {
                 scan.close();

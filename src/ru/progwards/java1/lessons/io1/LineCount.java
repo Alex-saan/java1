@@ -1,7 +1,6 @@
 package ru.progwards.java1.lessons.io1;
 
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class LineCount {
@@ -11,18 +10,24 @@ public class LineCount {
             FileReader fr = new FileReader(fileName);
             Scanner scan = new Scanner(fr);
             count = 0;
-            while (scan.hasNext()) {
+            while (scan.hasNextLine()) {
                 scan.next();
-                if (scan.next().isEmpty()) {
+                if (scan.nextLine().isEmpty()) {
                     count++;
                 }
-                fr.close();
                 scan.close();
+                fr.close();
+                System.out.println(count);
             }
         } catch (Exception e) {
-            count = -1;
+            return -1;
         }
         return count;
+    }
+
+    public static void main(String[] args) {
+        String Doc2 = "f:/Java/Doc2.txt";
+        System.out.println(calcEmpty(Doc2));
     }
 }
 
