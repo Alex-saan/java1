@@ -11,30 +11,32 @@ public class CharFilter {
             FileReader iF = new FileReader(inFileName);
             Scanner scan = new Scanner(iF);
             FileWriter oF = new FileWriter(outFileName);
+            String z = "";
             try {
-                while (scan.hasNext()) {
-                    char[] x = scan.next().toCharArray();
+                while (scan.hasNextLine()) {
+                    String[] x = new String[scan.nextLine().length()];
                     String[] y = new String[filter.length()];
+                    System.out.println(Arrays.toString(x));
                     for (int i = 0; i < y.length; i++) {
                         for (int j = 0; j < x.length; j++) {
-                            if (Arrays.toString(y).compareTo(Arrays.toString(x)) != 0) {
-                                y[j] = String.valueOf(x[j]);
+                            if (x[i] == y[i]) {
+                                z += x[i];
                             }
                         }
                     }
-                    oF.write(String.valueOf(y));
+                    oF.write(String.valueOf(z));
                 }
             } finally {
                 scan.close();
                 iF.close();
                 oF.close();
             }
-        } catch (Exception e) {
+        } catch (
+                Exception e) {
             System.out.println(e.getMessage());
         }
         return inFileName;
     }
-
     public static void main(String[] args) throws Exception {
         String Doc1 = "f:/Java/Doc1.txt";
         String Doc2 = "f:/Java/Doc2.txt";

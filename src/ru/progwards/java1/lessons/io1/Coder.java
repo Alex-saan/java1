@@ -47,6 +47,5 @@ public class Coder {
         String DocLog = "f:/Java/DocLog.txt";
         char[] code = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         codeFile(Doc1, Doc2, code, DocLog);
-
     }
 }
