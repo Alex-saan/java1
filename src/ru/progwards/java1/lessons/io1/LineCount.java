@@ -15,8 +15,8 @@ public class LineCount {
                     count++;
                 }
             }
-            fr.close();
             scan.close();
+            fr.close();
         } catch (Exception e) {
             return -1;
         }

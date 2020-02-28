@@ -14,8 +14,9 @@ public class CharFilter {
             String z = "";
             try {
                 while (scan.hasNextLine()) {
-                    String[] x = new String[scan.nextLine().length()];
-                    String[] y = new String[filter.length()];
+                    char[] x = new char[scan.nextLine().length()];
+                    char[] y = new char[filter.length()];
+
                     System.out.println(Arrays.toString(y));
                     for (int i = 0; i < y.length; i++) {
                         for (int j = 0; j < x.length; j++) {
@@ -37,6 +38,7 @@ public class CharFilter {
         }
         return inFileName;
     }
+
     public static void main(String[] args) throws Exception {
         String Doc1 = "f:/Java/Doc1.txt";
         String Doc2 = "f:/Java/Doc2.txt";
