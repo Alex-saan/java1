@@ -2,7 +2,6 @@ package ru.progwards.java1.lessons.io1;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Coder {

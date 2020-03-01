@@ -39,9 +39,8 @@ public class CharFilter {
                 iF.close();
                 oF.close();
             }
-        } catch (
-                Exception e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            throw e;
         }
         return inFileName;
     }
