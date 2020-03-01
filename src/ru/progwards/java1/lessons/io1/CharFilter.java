@@ -14,14 +14,15 @@ public class CharFilter {
             String z = "";
             try {
                 while (scan.hasNextLine()) {
-                    char[] x = new char[scan.nextLine().length()];
-                    char[] y = new char[filter.length()];
 
-                    System.out.println(Arrays.toString(y));
-                    for (int i = 0; i < y.length; i++) {
-                        for (int j = 0; j < x.length; j++) {
-                            if (x[i] == y[i]) {
-                                z += x[i];
+                    char[] chars = scan.next().toCharArray();
+
+                    char[] chars1 = filter.toCharArray();
+
+                    for (int i = 0; i < chars1.length; i++) {
+                        for (int j = 0; j < chars.length; j++) {
+                            if (chars[i] != chars1[i]) {
+                                z += chars[i];
                             }
                         }
                     }
