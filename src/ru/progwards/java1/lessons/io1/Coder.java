@@ -22,9 +22,9 @@ public class Coder {
                     }
                     oF.write(y);
 //                    y = "";
-//                    if (scan.hasNext()) {
-//                        oF.write("\n");
-//                    }
+                    if (scan.hasNext()) {
+                        oF.write("\n");
+                    }
                 }
             } finally {
                 scan.close();
