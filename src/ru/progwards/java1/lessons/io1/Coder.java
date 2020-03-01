@@ -17,8 +17,8 @@ public class Coder {
                     char[] x = scan.nextLine().toCharArray();
                     for (int i = 0; i < x.length; i++) {
                         //System.out.println(y);
-                        System.out.println(x);
-                        y += code[(int) x[i]] - 64;
+                        System.out.println((int) x[i]);
+                        y += code[(int) x[i]];
 
                     }
                     oF.write(y);
