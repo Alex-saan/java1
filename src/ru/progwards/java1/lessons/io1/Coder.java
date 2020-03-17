@@ -2,32 +2,19 @@ package ru.progwards.java1.lessons.io1;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Scanner;
 
 public class Coder {
     public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
         try {
             FileReader iF = new FileReader(inFileName);
-            Scanner scan = new Scanner(iF);
             FileWriter oF = new FileWriter(outFileName);
             String y = "";
             try {
-                while (scan.hasNextLine()) {
-                    char[] x = scan.nextLine().toCharArray();
-                    for (int i = 0; i < x.length; i++) {
-                        //System.out.println(y);
-                        System.out.println((int) x[i]);
-                        y += code[(int) x[i]];
-
-                    }
-                    oF.write(y);
-//                    y = "";
-                    if (scan.hasNext()) {
-                        oF.write("\n");
-                    }
+                for (int c = iF.read(); c >= 0; ) {
+                    y += code[c];
                 }
+                oF.write(y);
             } finally {
-                scan.close();
                 iF.close();
                 oF.close();
             }
