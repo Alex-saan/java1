@@ -10,7 +10,7 @@ public class Coder {
             FileWriter oF = new FileWriter(outFileName);
             String y = "";
             try {
-                for (int c = iF.read(); c >= 0; ) {
+                for (int c; (c = iF.read()) >= 0; ) {
                     y += code[c];
                 }
                 oF.write(y);
