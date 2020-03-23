@@ -1,42 +1,40 @@
 package ru.progwards.java1.lessons.io2;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Censor {
     public static void censorFile(String inoutFileName, String[] obscene) throws IOException {
-        try (RandomAccessFile fIO = new RandomAccessFile(inoutFileName, "rw")) {
-            String str = "";
+        String result;
+        try (FileReader fileReader = new FileReader(inoutFileName)) {
+            Scanner scanner = new Scanner(fileReader);
+            String word = "";
             String out = "";
-            String result = fIO.readLine();
-            //System.out.println(result);
-            Arrays.sort(obscene);
-            char[] tmp;
-            tmp = fIO.toString().toCharArray();
-            for (int i = 0; i < tmp.length; i++) {
-                if (Character.isAlphabetic(tmp[i])) {
-                    str += tmp[i];
-                } else {
-                    if (str != "") {
-                        if (Arrays.binarySearch(obscene, str) != -1) {
-                            out = methodStar(str);
-                            result=result.replaceAll(str,out);
-                            System.out.println(str);
-                            System.out.println(out);
-                            System.out.println(result);
+            while (scanner.hasNextLine()) {
+                result = scanner.nextLine();
+                Arrays.sort(obscene);
+                char[] tmp = result.toCharArray();
+                for (int i = 0; i < tmp.length; i++) {
+                    if (Character.isAlphabetic(tmp[i])) {
+                        word += tmp[i];
+                    } else {
+                        if (word != "") {
+                            if (Arrays.binarySearch(obscene, word) >= 0) {
+                                out = methodStar(word);
+                                result = result.replaceAll(word, out);
+                            }
+                            word = "";
                         }
-                        str = "";
                     }
                 }
-            }
-            //System.out.println(result);
-            FileWriter fileWriter = new FileWriter(inoutFileName);
-            fileWriter.write(result);
 
-        } catch (IOException CensorException) {
-            throw CensorException;
+                try (FileWriter fileWriter = new FileWriter(inoutFileName)) {
+                    fileWriter.write(result);
+                }
+            }
         }
     }
 
@@ -46,6 +44,14 @@ public class Censor {
             star += "*";
         }
         return star;
+    }
+    public static class CensorException {
+        private String inoutFileName;
+
+        @Override
+        public String toString() {
+            return inoutFileName;
+        }
     }
 
     public static void main(String[] args) {
