@@ -1,9 +1,6 @@
 package ru.progwards.java1.lessons.io2;
 
-
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Translator {
     private String[] inLang;
@@ -23,7 +20,8 @@ public class Translator {
         for (int i = 0; i < tmp.length; i++) {
             if (Character.isAlphabetic(tmp[i])) {
                 word += tmp[i];
-            } else {
+            }
+            if (!Character.isAlphabetic(tmp[i]) | i == tmp.length - 1) {
                 if (word != "") {
                     for (int j = 0; j <= inLang.length; j++) {
                         if (word.toLowerCase().compareTo(inLang[j]) == 0) {
@@ -37,14 +35,15 @@ public class Translator {
                     result += out;
                     word = "";
                 }
-                result += tmp[i];
+                if (!Character.isAlphabetic(tmp[i]))
+                    result += tmp[i];
             }
         }
         return result;
     }
 
     public static void main(String[] args) throws IOException {
-        Translator tr = new Translator(new String[]{"в", "лесу", "елочка", "родилась"}, new String[]{"in", "forest", "tree", "born"});
-        System.out.println(tr.translate("В лесу, Родилась елочка!"));
+        Translator tr = new Translator(new String[]{"make", "love", "not", "war"}, new String[]{"твори", "любовь", "не", "войну"});
+        System.out.println(tr.translate("make, love not war"));
     }
 }

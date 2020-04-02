@@ -13,15 +13,6 @@ public class CharFilter {
             String z = "";
             String c = "";
             try {
-//                while (iF.read() != -1) {
-//                    c = Integer.toString(iF.read());
-//                    System.out.println(iF.read());
-//                    if (!c.contains(filter)) {
-//                        //System.out.println(c);
-//                        c += c + "";
-//                        //System.out.println(c);
-//                    }
-//                }
                 while (scan.hasNext()) {
                     char[] chars = scan.next().toCharArray();
                     char[] chars1 = filter.toCharArray();

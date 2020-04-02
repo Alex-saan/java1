@@ -7,15 +7,15 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Censor {
-    public static void censorFile(String inoutFileName, String[] obscene) throws IOException {
+    public static void censorFile(String inoutFileName, String[] obscene) throws CensorException {
         String result;
         try (FileReader fileReader = new FileReader(inoutFileName)) {
             Scanner scanner = new Scanner(fileReader);
             String word = "";
             String out = "";
+            Arrays.sort(obscene);
             while (scanner.hasNextLine()) {
                 result = scanner.nextLine();
-                Arrays.sort(obscene);
                 char[] tmp = result.toCharArray();
                 for (int i = 0; i < tmp.length; i++) {
                     if (Character.isAlphabetic(tmp[i])) {
@@ -33,8 +33,12 @@ public class Censor {
 
                 try (FileWriter fileWriter = new FileWriter(inoutFileName)) {
                     fileWriter.write(result);
+                } catch (IOException e) {
+                    throw new CensorException(e.getMessage(), inoutFileName);
                 }
             }
+        } catch (IOException e1) {
+            throw new CensorException(e1.getMessage(),inoutFileName);
         }
     }
 
@@ -45,12 +49,19 @@ public class Censor {
         }
         return star;
     }
-    public static class CensorException {
+
+    public static class CensorException extends Throwable {
         private String inoutFileName;
+        private String mess;
+
+        CensorException(String mess, String inoutFileName) {
+            this.inoutFileName = inoutFileName;
+            this.mess = mess;
+        }
 
         @Override
         public String toString() {
-            return inoutFileName;
+            return inoutFileName + ":"+ mess;
         }
     }
 
@@ -59,7 +70,7 @@ public class Censor {
         String[] obscene = {"Java", "Oracle", "Sun", "Microsystems"};
         try {
             censorFile(Doc1, obscene);
-        } catch (IOException CensorException) {
+        } catch (Censor.CensorException CensorException) {
             CensorException.getMessage();
         }
     }
