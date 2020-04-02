@@ -37,8 +37,8 @@ public class Censor {
                     throw new CensorException(e.getMessage(), inoutFileName);
                 }
             }
-        } catch (IOException e1) {
-            throw new CensorException(e1.getMessage(),inoutFileName);
+        } catch (Exception e) {
+            throw new CensorException(e.getMessage(),inoutFileName);
         }
     }
 
@@ -50,7 +50,7 @@ public class Censor {
         return star;
     }
 
-    public static class CensorException extends Throwable {
+    static class CensorException extends Exception {
         private String inoutFileName;
         private String mess;
 
