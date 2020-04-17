@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class ArrayIterator<T> implements Iterator<T> {
 
     private T[] array;
-    private int position = -1;
+    private int position = 0;
 
     ArrayIterator(T[] array) {
         this.array = array;
@@ -18,18 +18,14 @@ public class ArrayIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
-        if (++position < array.length) {
-            return array[position];
-        }
-        return null;
+        return position < array.length ? array[position++] : null;
     }
 
     public static void main(String[] args) {
         String[] str = {"a", "b", "c", "d", "e", "f", "j", "h", "i"};
         ArrayIterator<String> ai = new ArrayIterator(str);
-        for (int i = 0; i <str.length; i++) {
+        for (int i = 0; i < str.length; i++) {
             System.out.println(ai.next());
         }
-
     }
 }

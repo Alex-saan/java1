@@ -106,7 +106,7 @@ public class Finder {
 //        lInt.add(12);
         //System.out.println(findSequence(lInt));
         List<String> str = new ArrayList();
-        str = List.of("вася", "вася", "петя", "петя", "петя", "дима", "дима", "дима","дима","миша","миша","миша","миша","миша");
+        str = List.of("вася", "вася", "петя", "петя", "петя", "дима", "дима", "дима","дима","миша","миша","миша","миша");
         System.out.println(findSimilar(str));
 
     }
