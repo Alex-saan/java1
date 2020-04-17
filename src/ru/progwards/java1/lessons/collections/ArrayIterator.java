@@ -25,8 +25,11 @@ public class ArrayIterator<T> implements Iterator<T> {
     }
 
     public static void main(String[] args) {
-        String[] str = {"a", "b", "b", "b", "b", "b", "b", "b", "b"};
+        String[] str = {"a", "b", "c", "d", "e", "f", "j", "h", "i"};
         ArrayIterator<String> ai = new ArrayIterator(str);
-        System.out.println(ai.next());
+        for (int i = 0; i <str.length; i++) {
+            System.out.println(ai.next());
+        }
+
     }
 }
