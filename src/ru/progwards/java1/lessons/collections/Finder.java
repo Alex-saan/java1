@@ -55,21 +55,16 @@ public class Finder {
         int result = 1;
         int resultOut = 1;
         for (int i = 0; i < names.size() - 1; i++) {
-            if (in.get(i) == in.get(i + 1)) {
+            if (in.get(i) == res) {
                 result++;
+            } else {
+                if (result > resultOut) {
+                    resOut = res;
+                    resultOut = result;
+                }
                 res = in.get(i);
-                continue;
-            }
-            if (result > resultOut) {
-                resOut = res;
-                resultOut = result;
-                System.out.println(res);
-                res = "";
                 result = 1;
             }
-        }
-        if (resultOut < result) {
-            return res + ":" + result;
         }
         return resOut + ":" + resultOut;
     }
@@ -106,8 +101,7 @@ public class Finder {
 //        lInt.add(12);
         //System.out.println(findSequence(lInt));
         List<String> str = new ArrayList();
-        str = List.of("вася", "вася", "петя", "петя", "петя", "дима", "дима", "дима","дима","миша","миша","миша","миша");
+        str = List.of("вася", "петя");//, "петя", "петя", "петя", "дима", "дима", "миша", "дима", "дима", "миша", "миша", "вася", "вася");
         System.out.println(findSimilar(str));
-
     }
 }
