@@ -50,20 +50,20 @@ public class Finder {
 //    повторяющаяся последовательность которого началась с наименьшего индекса.
     public static String findSimilar(Collection<String> names) {
         List<String> in = new ArrayList(names);
-        String res = "";
+        String res = in.get(0);
         String resOut = "";
         int result = 1;
         int resultOut = 1;
-        for (int i = 0; i < names.size() - 1; i++) {
+        for (int i = 1; i < names.size(); i++) {
             if (in.get(i) == res) {
                 result++;
             } else {
-                if (result > resultOut) {
-                    resOut = res;
-                    resultOut = result;
-                }
                 res = in.get(i);
                 result = 1;
+            }
+            if (result > resultOut) {
+                resOut = res;
+                resultOut = result;
             }
         }
         return resOut + ":" + resultOut;
@@ -101,7 +101,7 @@ public class Finder {
 //        lInt.add(12);
         //System.out.println(findSequence(lInt));
         List<String> str = new ArrayList();
-        str = List.of("вася", "петя");//, "петя", "петя", "петя", "дима", "дима", "миша", "дима", "дима", "миша", "миша", "вася", "вася");
+        str = List.of("вася", "вася", "петя", "петя", "дима", "дима", "вася", "миша", "миша", "вася", "вася", "вася");
         System.out.println(findSimilar(str));
     }
 }
