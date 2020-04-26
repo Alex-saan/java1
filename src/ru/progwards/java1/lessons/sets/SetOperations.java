@@ -26,8 +26,8 @@ public class SetOperations {
         HashSet result = new HashSet(set1);
         HashSet result1 = new HashSet(set2);
         HashSet resultTotal = new HashSet();
-        result.removeAll(set1);
-        result1.removeAll(set2);
+        result.removeAll(set2);
+        result1.removeAll(set1);
         resultTotal.addAll(result);
         resultTotal.addAll(result1);
         return resultTotal;
