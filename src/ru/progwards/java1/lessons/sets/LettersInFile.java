@@ -7,7 +7,6 @@ import java.util.*;
 public class LettersInFile {
     public static String process(String fileName) throws IOException {
         String scan = "";
-        String bukv = "";
         char[] tmp;
         TreeSet<Character> treeSet = new TreeSet<Character>();
         try (FileReader fileReader = new FileReader(fileName)) {
@@ -22,7 +21,8 @@ public class LettersInFile {
                 }
             }
         }
-        return treeSet.toString();
+        //String bukv = String.valueOf(treeSet);
+        return String.valueOf(treeSet).replace(",", "").replace("[","").replace("]","");
     }
 
     public static void main(String[] args) {
