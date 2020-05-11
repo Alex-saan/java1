@@ -14,7 +14,10 @@ public class CollectionsSort {
                 }
             }
         }
+        data.clear();
+        data.addAll(dInt);
     }
+
 
     public static void minSort(Collection<Integer> data) {
         List<Integer> dInt = new ArrayList(data);
@@ -25,12 +28,15 @@ public class CollectionsSort {
             out.add(x);
             dInt.remove(x);
         }
+        data.clear();
         data.addAll(out);
     }
 
     public static void collSort(Collection<Integer> data) {
         List<Integer> dInt = new ArrayList(data);
         Collections.sort(dInt);
+        data.clear();
+        data.addAll(dInt);
     }
 
     public static Collection<String> compareSort() {
@@ -52,9 +58,6 @@ public class CollectionsSort {
         mySort(lInt);
         long z = (new Date().getTime() - startTime);
         System.out.println(z);
-        x = 10;
-        y = 10;
-        z = 10;
 
         if (x < y && y < z) {
             str.add("minSort");
@@ -88,6 +91,8 @@ public class CollectionsSort {
     }
 
     public static void main(String[] args) {
-        compareSort();
+        List<Integer> list = new LinkedList<>();
+        list.addAll(List.of(2, 55, 68, 90, 38, 92, 35, 24, 19));
+       mySort(list);
     }
 }
