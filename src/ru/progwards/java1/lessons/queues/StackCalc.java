@@ -3,6 +3,7 @@ package ru.progwards.java1.lessons.queues;
 import java.util.ArrayDeque;
 
 public class StackCalc {
+    public double value;
 
     ArrayDeque<Double> arrayDeque = new ArrayDeque<>();
 
@@ -67,11 +68,10 @@ public class StackCalc {
 //        stackCalc.push();
 
 
-
         return stackCalc.pop();
     }
 
     public static void main(String[] args) {
-        System.out.println(calculation2());
+        //System.out.println(calculation2());
     }
 }
