@@ -80,7 +80,7 @@ public class CollectionsSort {
 //            str.add("minSort");
 //            Collections.sort(str);
 //        }
-        str.addAll(List.of("collSort", "mySort", "minSort"));
+        str.addAll(List.of("collSort", "minSort", "mySort"));
 //        if (y == x && z == x) {
 //            str.clear();
 //            str.addAll(List.of("collSort", "mySort", "minSort"));
