@@ -3,6 +3,7 @@ package ru.progwards.java1.lessons.queues;
 import java.util.*;
 
 public class CollectionsSort {
+
     public static void mySort(Collection<Integer> data) {
         List<Integer> dInt = new ArrayList(data);
         for (int i = 0; i < dInt.size(); ++i) {
@@ -40,10 +41,11 @@ public class CollectionsSort {
 
     public static Collection<String> compareSort() {
         List<Integer> lInt = new ArrayList();
-        for (int i = 0; i < 1000; ++i) {
+        for (int i = 0; i < 10000; ++i) {
             lInt.add(i);
         }
         List<String> str = new ArrayList<>();
+
 
         var startTime = new Date().getTime();
         minSort(lInt);
@@ -58,42 +60,23 @@ public class CollectionsSort {
         long z = (new Date().getTime() - startTime);
         System.out.println(z);
 
-//        if (x < y && y < z) {
-//            str.add("minSort");
-//        } else if (y < x && x < z) {
-//            str.add("collSort");
-//        } else if (z < y && y < x) {
-//            str.add("mySort");
-//        }
-//        if (x == z) {
-//            str.add("minSort");
-//            str.add("mySort");
-//            Collections.sort(str);
-//        }
-//        if (y == z) {
-//            str.add("collSort");
-//            str.add("mySort");
-//            Collections.sort(str);
-//        }
-//        if (y == x) {
-//            str.add("collSort");
-//            str.add("minSort");
-//            Collections.sort(str);
-//        }
         str.addAll(List.of("collSort", "minSort", "mySort"));
-//        if (y == x && z == x) {
-//            str.clear();
-//            str.addAll(List.of("collSort", "mySort", "minSort"));
-//            Collections.sort(str);
-//        }
         System.out.println(str.toString());
 
         return str;
     }
 
+//    Comparator<SortOut> com1 = new Comparator<SortOut>() {
+//        @Override
+//        public int compare(SortOut o1, SortOut o2) {
+//            return Integer.compare(o1.getTime(), o2.getTime());
+//        }
+//    };
+
     public static void main(String[] args) {
         List<Integer> list = new LinkedList<>();
         list.addAll(List.of(2, 55, 68, 90, 38, 92, 35, 24, 19));
         mySort(list);
+
     }
 }
