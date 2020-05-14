@@ -1,18 +1,19 @@
 package ru.progwards.java1.lessons.queues;
 
-public class SortOut {
+public class SortOut implements Comparable<SortOut> {
     private String name;
-    private int time;
+    private long time;
 
-    public SortOut(String name, int time) {
+    public SortOut(String name, long time) {
         this.name = name;
         this.time = time;
     }
-    public String getName(){
-        return name;
-    }
-    public int getTime(){
-        return time;
+
+    @Override
+    public int compareTo(SortOut o) {
+        if (time == o.time) {
+            return name.compareTo(o.name);
+        } else return Long.compare(time, o.time);
     }
 
     @Override

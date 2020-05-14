@@ -40,43 +40,33 @@ public class CollectionsSort {
     }
 
     public static Collection<String> compareSort() {
+        TreeSet<SortOut> treeSet = new TreeSet<>();
+
         List<Integer> lInt = new ArrayList();
         for (int i = 0; i < 10000; ++i) {
             lInt.add(i);
         }
-        List<String> str = new ArrayList<>();
-
 
         var startTime = new Date().getTime();
         minSort(lInt);
         long x = (new Date().getTime() - startTime);
-        System.out.println(x);
+        SortOut sortOutMin = new SortOut("minSort", x);
         startTime = new Date().getTime();
         collSort(lInt);
         long y = (new Date().getTime() - startTime);
-        System.out.println(y);
+        SortOut sortOutcoll = new SortOut("collSort", y);
         startTime = new Date().getTime();
         mySort(lInt);
         long z = (new Date().getTime() - startTime);
-        System.out.println(z);
+        SortOut sortOutMy = new SortOut("mySort", z);
+        treeSet.add(sortOutMin);
+        treeSet.add(sortOutcoll);
+        treeSet.add(sortOutMy);
 
-        str.addAll(List.of("collSort", "minSort", "mySort"));
-        System.out.println(str.toString());
-
-        return str;
+        return new ArrayList(treeSet);
     }
 
-//    Comparator<SortOut> com1 = new Comparator<SortOut>() {
-//        @Override
-//        public int compare(SortOut o1, SortOut o2) {
-//            return Integer.compare(o1.getTime(), o2.getTime());
-//        }
-//    };
-
     public static void main(String[] args) {
-        List<Integer> list = new LinkedList<>();
-        list.addAll(List.of(2, 55, 68, 90, 38, 92, 35, 24, 19));
-        mySort(list);
-
+        System.out.println(compareSort());
     }
 }
