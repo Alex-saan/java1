@@ -18,9 +18,7 @@ public class SortOut implements Comparable<SortOut> {
 
     @Override
     public String toString() {
-        return "SortOut{" +
-                "name='" + name + '\'' +
-                ", time=" + time +
-                '}';
+        return name + ", ";
+
     }
 }
