@@ -44,14 +44,14 @@ public class FiboMapCache {
         FiboMapCache fiboMapCacheOff = new FiboMapCache(false);
 
         long start2 = System.currentTimeMillis();
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 1000; i++) {
             fiboMapCacheOff.fiboNumber(i);
         }
         long end2 = System.currentTimeMillis() - start2;
         System.out.println("fiboNumber cacheOn=false время выполнения " + end2);
 
         long start1 = System.currentTimeMillis();
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 1000; i++) {
             fiboMapCacheOn.fiboNumber(i);
         }
         long end1 = System.currentTimeMillis() - start1;
