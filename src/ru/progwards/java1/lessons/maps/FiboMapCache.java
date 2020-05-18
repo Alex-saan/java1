@@ -12,15 +12,17 @@ public class FiboMapCache {
     }
 
     public BigDecimal fiboNumber(int n) {
-
+        BigDecimal res;
         if (cacheOn == true && fiboCache != null && fiboCache.containsKey(n)) {
             return fiboCache.get(n);
-        }
-        BigDecimal res = BigDecimal.ONE;
-        if (n != 1 && n != 2) {
+//        } else if (n == 1) {
+//            return BigDecimal.valueOf(1);
+//        } else if (n == 2) {
+//            return BigDecimal.valueOf(1);
+        } else {
             BigDecimal a = BigDecimal.ONE;
             BigDecimal b = BigDecimal.ONE;
-            BigDecimal c = BigDecimal.ZERO;
+            BigDecimal c = BigDecimal.ONE;
             for (int i = 3; i <= n; i++) {
                 c = a.add(b);
                 a = b;
@@ -31,7 +33,7 @@ public class FiboMapCache {
         if (fiboCache != null) {
             fiboCache.put(n, res);
         }
-        System.out.println(res);
+        //System.out.println(res);
         return res;
     }
 
@@ -48,6 +50,7 @@ public class FiboMapCache {
             fiboMapCacheOff.fiboNumber(i);
         }
         long end2 = System.currentTimeMillis() - start2;
+        fiboMapCacheOff.clearCahe();
         System.out.println("fiboNumber cacheOn=false время выполнения " + end2);
 
         long start1 = System.currentTimeMillis();
@@ -55,6 +58,7 @@ public class FiboMapCache {
             fiboMapCacheOn.fiboNumber(i);
         }
         long end1 = System.currentTimeMillis() - start1;
+        fiboMapCacheOn.clearCahe();
         System.out.println("fiboNumber cacheOn=true время выполнения " + end1);
     }
 
