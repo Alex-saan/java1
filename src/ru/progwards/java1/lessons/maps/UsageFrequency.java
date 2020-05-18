@@ -40,11 +40,13 @@ public class UsageFrequency {
 
     public Map<String, Integer> getWords() {
         String[] words = word.split("\\W+");
-        for (int i = 0; i < words.length; i++) {
+
+        for (int i = 1; i < words.length; i++) {
             if (hashMapStr.containsKey(words[i])) {
                 hashMapStr.replace(words[i], hashMapStr.get(words[i]) + 1);
             } else
                 hashMapStr.put(words[i], 1);
+
         }
         return hashMapStr;
     }
