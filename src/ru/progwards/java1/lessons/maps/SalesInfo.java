@@ -11,6 +11,8 @@ public class SalesInfo {
         try (FileReader fileReader = new FileReader(fileName)) {
             Scanner scanner = new Scanner(fileReader);
             while (scanner.hasNextLine()) {
+
+
                 word += scanner.nextLine();
             }
         } catch (IOException e) {

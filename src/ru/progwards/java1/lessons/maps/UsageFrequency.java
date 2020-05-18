@@ -1,5 +1,6 @@
 package ru.progwards.java1.lessons.maps;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,12 +12,16 @@ public class UsageFrequency {
     HashMap<String, Integer> hashMapStr = new HashMap<>();
     String word = "";
 
-    public void processFile(String fileName) throws IOException {
+    public void processFile(String fileName) {
         try (FileReader fileReader = new FileReader(fileName)) {
             Scanner scanner = new Scanner(fileReader);
             while (scanner.hasNextLine()) {
                 word += scanner.nextLine();
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -47,11 +52,7 @@ public class UsageFrequency {
     public static void main(String[] args) {
         UsageFrequency usageFrequency = new UsageFrequency();
 
-        try {
-            usageFrequency.processFile("C:\\Users\\User\\IdeaProjects\\ProgWards\\src\\ru\\progwards\\java1\\lessons\\maps\\wiki.test.tokens");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        usageFrequency.processFile("C:\\Users\\User\\IdeaProjects\\ProgWards\\src\\ru\\progwards\\java1\\lessons\\maps\\wiki.test.tokens");
         for (var entryCh : usageFrequency.getLetters().entrySet()) {
             //System.out.println(entryCh);
         }
