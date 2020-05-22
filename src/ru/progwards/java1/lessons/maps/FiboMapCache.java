@@ -15,10 +15,6 @@ public class FiboMapCache {
         BigDecimal res;
         if (cacheOn == true && fiboCache != null && fiboCache.containsKey(n)) {
             return fiboCache.get(n);
-//        } else if (n == 1) {
-//            return BigDecimal.valueOf(1);
-//        } else if (n == 2) {
-//            return BigDecimal.valueOf(1);
         } else {
             BigDecimal a = BigDecimal.ONE;
             BigDecimal b = BigDecimal.ONE;
@@ -33,7 +29,6 @@ public class FiboMapCache {
         if (fiboCache != null) {
             fiboCache.put(n, res);
         }
-        //System.out.println(res);
         return res;
     }
 
