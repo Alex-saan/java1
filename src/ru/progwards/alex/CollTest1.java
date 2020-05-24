@@ -1,18 +1,20 @@
 package ru.progwards.alex;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class Collect {
+public class CollTest1 {
 
     public List<Integer> listAction(List<Integer> list) {
         list.remove(Collections.min(list));
-        list.add(0, list.size()-1);
+        list.add(0, list.size());
         list.add(2, Collections.max(list));
         return list;
     }
 
     public static void main(String[] args) {
-        Collect name = new Collect();
+        CollTest1 name = new CollTest1();
         List<Integer> lInt = new ArrayList();
         lInt.add(4);
         lInt.add(1);

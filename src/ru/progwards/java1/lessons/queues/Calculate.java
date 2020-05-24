@@ -1,6 +1,5 @@
 package ru.progwards.java1.lessons.queues;
 
-import ru.progwards.java1.lessons.interfaces.CalculateFibonacci;
 
 public class Calculate {
     public static double calculation1() {
@@ -36,5 +35,10 @@ public class Calculate {
         x.div();
         x.add();
         return x.pop();
+    }
+
+    public static void main(String[] args) {
+        calculation2();
+        calculation1();
     }
 }

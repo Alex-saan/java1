@@ -6,6 +6,7 @@ public class ArraySort {
     public static void main(String[] args) {
         int[] a = {1, 9, 3, 1, 8, 2, 5, -7, 5, 77, 11, -3};
         sort(a);
+
     }
 
     public static void sort(int[] a) {
@@ -18,6 +19,7 @@ public class ArraySort {
                 }
             }
         }
+        System.out.println(Arrays.toString(a));
     }
 }
 
