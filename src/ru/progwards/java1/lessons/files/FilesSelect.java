@@ -26,8 +26,7 @@ public class FilesSelect {
                         }
                         for (String key : keys) {
                             if (file.contains(key)) {
-                                String fileInKey = key;
-                                Path newDir = path.resolve(fileInKey);
+                                Path newDir = Paths.get(outFolder).resolve(key);
                                 try {
                                     Files.createDirectory(newDir);
                                     Files.copy(pathIn, pathOut, StandardCopyOption.REPLACE_EXISTING);
