@@ -44,7 +44,7 @@ public class FindDuplicates {
                                     Files.readAllBytes(pathJ))) {
                                 List<String> listN = new ArrayList<>();
                                 listN.add(String.valueOf(pathI));
-                                listN.add(String.valueOf(pathJ));
+                                //listN.add(String.valueOf(pathJ));
                                 listOut.add(listN);
                             }
                         }
