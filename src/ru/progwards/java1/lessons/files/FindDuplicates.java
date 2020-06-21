@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FindDuplicates {
+
     public List<List<String>> findDuplicates(String startPath) {
         List<Path> list = new ArrayList<>();
         List<List<String>> listOut = new ArrayList<>();
@@ -24,30 +25,33 @@ public class FindDuplicates {
                     return FileVisitResult.CONTINUE;
                 }
             });
-
+            System.out.println(list.size());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         for (int i = 0; i < list.size(); i++) {
-            Path pathI = list.get(i);
+
             for (int j = 1; j < list.size(); j++) {
+                Path pathI = list.get(i);
                 Path pathJ = list.get(j);
-                Path pI = pathI.getFileName();
-                Path pJ = pathJ.getFileName();
-                if (pI.equals(pJ)) {
+                if (pathI.getFileName().equals(pathJ.getFileName()) && i != j) {
+                    System.out.println(i);
+                    System.out.println(pathI.getFileName());
+                    System.out.println(j);
+                    System.out.println(pathJ.getFileName());
                     try {
-                        if (
-                                (Files.readAttributes(pathI, "lastModifiedTime").equals(
-                                        Files.readAttributes(pathJ, "lastModifiedTime")) &&
-                                        Files.size(pathI) == Files.size(pathJ)
-                                )) {
+                        if (Files.readAttributes(pathI, "lastModifiedTime").equals(
+                                Files.readAttributes(pathJ, "lastModifiedTime")) &&
+                                Files.size(pathI) == Files.size(pathJ)
+                        ) {
                             if (Arrays.equals(Files.readAllBytes(pathI),
                                     Files.readAllBytes(pathJ))) {
                                 List<String> listN = new ArrayList<>();
                                 listN.add(String.valueOf(pathI));
                                 listN.add(String.valueOf(pathJ));
                                 listOut.add(listN);
+
                             }
                         }
                     } catch (IOException e) {
@@ -56,6 +60,7 @@ public class FindDuplicates {
                 }
             }
         }
+        System.out.println(listOut.size());
         System.out.println(listOut);
         return listOut;
     }
