@@ -25,7 +25,6 @@ public class FindDuplicates {
                     return FileVisitResult.CONTINUE;
                 }
             });
-            System.out.println(list.size());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -36,10 +35,6 @@ public class FindDuplicates {
                 Path pathI = list.get(i);
                 Path pathJ = list.get(j);
                 if (pathI.getFileName().equals(pathJ.getFileName()) && i != j) {
-                    System.out.println(i);
-                    System.out.println(pathI.getFileName());
-                    System.out.println(j);
-                    System.out.println(pathJ.getFileName());
                     try {
                         if (Files.readAttributes(pathI, "lastModifiedTime").equals(
                                 Files.readAttributes(pathJ, "lastModifiedTime")) &&
@@ -51,7 +46,6 @@ public class FindDuplicates {
                                 listN.add(String.valueOf(pathI));
                                 listN.add(String.valueOf(pathJ));
                                 listOut.add(listN);
-
                             }
                         }
                     } catch (IOException e) {
@@ -60,7 +54,6 @@ public class FindDuplicates {
                 }
             }
         }
-        System.out.println(listOut.size());
         System.out.println(listOut);
         return listOut;
     }
