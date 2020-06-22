@@ -30,8 +30,7 @@ public class FindDuplicates {
         }
         List<String> listN = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-
-            for (int j = 1; j < list.size(); j++) {
+            for (int j = i; j < list.size(); j++) {
                 Path pathI = list.get(i);
                 Path pathJ = list.get(j);
                 if (pathI.getFileName().equals(pathJ.getFileName()) && i != j) {
@@ -42,7 +41,6 @@ public class FindDuplicates {
                         ) {
                             if (Arrays.equals(Files.readAllBytes(pathI),
                                     Files.readAllBytes(pathJ))
-                                    && !listN.contains(String.valueOf(pathI)) && !listN.contains(String.valueOf(pathJ))
                             ) {
                                 listN.add(String.valueOf(pathI));
                                 listN.add(String.valueOf(pathJ));
