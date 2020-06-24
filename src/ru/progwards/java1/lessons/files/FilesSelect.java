@@ -9,7 +9,7 @@ import java.util.List;
 public class FilesSelect {
     String file = "";
 
-    public void selectFiles(String inFolder, String outFolder, List<String> keys) throws IOException {
+    public void selectFiles(String inFolder, String outFolder, List<String> keys) {
         PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:**/*.txt");
         try {
             Files.walkFileTree(Paths.get(inFolder), new SimpleFileVisitor<Path>() {
@@ -19,7 +19,7 @@ public class FilesSelect {
                         try {
                             file = Files.readString(path);
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            e.getMessage();
                         }
                         for (String key : keys) {
                             if (file.contains(key)) {
@@ -27,12 +27,12 @@ public class FilesSelect {
                                 try {
                                     Files.createDirectories(newDir);
                                 } catch (IOException e) {
-                                    e.printStackTrace();
+                                    e.getMessage();
                                 }
                                 try {
                                     Files.copy(path, newDir.resolve(path.getFileName()), StandardCopyOption.REPLACE_EXISTING);
                                 } catch (IOException e) {
-                                    e.printStackTrace();
+                                    e.getMessage();
                                 }
                             }
                         }
@@ -46,7 +46,7 @@ public class FilesSelect {
                 }
             });
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 
@@ -54,10 +54,6 @@ public class FilesSelect {
         FilesSelect filesSelect = new FilesSelect();
         List<String> list = new ArrayList<>();
         list.add("String");
-        try {
             filesSelect.selectFiles("d:/inFolder/", "d:/outFolder/", list);
-        } catch (IOException e) {
-            e.getMessage();
-        }
     }
 }
