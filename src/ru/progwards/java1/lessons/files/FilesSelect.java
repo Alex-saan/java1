@@ -1,6 +1,5 @@
 package ru.progwards.java1.lessons.files;
 
-import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -52,7 +51,6 @@ public class FilesSelect {
     }
 
     public static void main(String[] args) {
-
         FilesSelect filesSelect = new FilesSelect();
         List<String> list = new ArrayList<>();
         list.add("String");

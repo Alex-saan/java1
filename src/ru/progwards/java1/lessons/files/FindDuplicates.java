@@ -54,8 +54,6 @@ public class FindDuplicates {
                 }
             }
         }
-
-        System.out.println(listOut);
         return listOut;
     }
 
