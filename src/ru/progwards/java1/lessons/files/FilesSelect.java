@@ -1,5 +1,6 @@
 package ru.progwards.java1.lessons.files;
 
+import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -9,11 +10,8 @@ import java.util.List;
 public class FilesSelect {
     String file = "";
 
-    public void selectFiles(String inFolder, String outFolder, List<String> keys) {
-        Path pathIn = Paths.get("d:/inFolder");
-        Path pathOut = Paths.get("d:/outFolder");
+    public void selectFiles(String inFolder, String outFolder, List<String> keys) throws IOException {
         PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:**/*.txt");
-
         try {
             Files.walkFileTree(Paths.get(inFolder), new SimpleFileVisitor<Path>() {
                 @Override
@@ -28,15 +26,18 @@ public class FilesSelect {
                             if (file.contains(key)) {
                                 Path newDir = Paths.get(outFolder).resolve(key);
                                 try {
-                                    Files.createDirectory(newDir);
-                                    Files.copy(pathIn, pathOut, StandardCopyOption.REPLACE_EXISTING);
+                                    Files.createDirectories(newDir);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                try {
+                                    Files.copy(path, newDir.resolve(path.getFileName()), StandardCopyOption.REPLACE_EXISTING);
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    System.out.println(path);
                     return FileVisitResult.CONTINUE;
                 }
 
@@ -51,9 +52,14 @@ public class FilesSelect {
     }
 
     public static void main(String[] args) {
+
         FilesSelect filesSelect = new FilesSelect();
         List<String> list = new ArrayList<>();
-        list.add("string");
-        filesSelect.selectFiles("d:/inFolder", "d:/outFolder", list);
+        list.add("String");
+        try {
+            filesSelect.selectFiles("d:/inFolder/", "d:/outFolder/", list);
+        } catch (IOException e) {
+            e.getMessage();
+        }
     }
 }
