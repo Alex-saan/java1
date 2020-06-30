@@ -47,7 +47,6 @@ public class SalesInfo {
         return treeMap;
     }
 
-
     public Map<String, AbstractMap.SimpleEntry<Double, Integer>> getCustomers() {
         TreeMap<String, AbstractMap.SimpleEntry<Double, Integer>> treeMap = new TreeMap<>();
         for (String[] strings : list) {
