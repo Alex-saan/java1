@@ -44,7 +44,7 @@ public class OrderProcessor {
                                         break;
                                     }
                                     OrderItem orderItem = new OrderItem();
-                                    orderItem.goodsName = item[0].trim();
+                                    orderItem.googsName = item[0].trim();
                                     orderItem.count = Integer.parseInt(item[1].trim());
                                     orderItem.price = Double.parseDouble(item[2].trim());
                                     sumItem += orderItem.count * orderItem.price;
@@ -61,7 +61,7 @@ public class OrderProcessor {
                                 order.items = items;
 
                                 try {
-                                    order.dateTime = LocalDateTime.ofInstant(Files.getLastModifiedTime(path).toInstant(), ZoneId.systemDefault());
+                                    order.datetime = LocalDateTime.ofInstant(Files.getLastModifiedTime(path).toInstant(), ZoneId.systemDefault());
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -98,7 +98,7 @@ public class OrderProcessor {
         Collections.sort(result, new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
-                return o1.dateTime.compareTo(o2.dateTime);
+                return o1.datetime.compareTo(o2.datetime);
             }
         });
         System.out.println(result);
@@ -118,8 +118,8 @@ public class OrderProcessor {
         Map<String, Double> map = new TreeMap<>();
         for (Order o : listIn) {
             for (OrderItem oI : o.items) {
-                double summa = map.containsKey(oI.goodsName) ? map.get(oI.goodsName) : 0;
-                map.put(oI.goodsName, oI.price * oI.count + summa);
+                double summa = map.containsKey(oI.googsName) ? map.get(oI.googsName) : 0;
+                map.put(oI.googsName, oI.price * oI.count + summa);
             }
         }
         return map;
@@ -127,8 +127,8 @@ public class OrderProcessor {
     public Map<LocalDate, Double> statisticsByDay(){
         Map<LocalDate, Double> map = new TreeMap<>();
         for (Order o : listIn) {
-            double summa = map.containsKey(o.dateTime.toLocalDate()) ? map.get(o.dateTime.toLocalDate()) : 0;
-            map.put(o.dateTime.toLocalDate(), o.sum + summa);
+            double summa = map.containsKey(o.datetime.toLocalDate()) ? map.get(o.datetime.toLocalDate()) : 0;
+            map.put(o.datetime.toLocalDate(), o.sum + summa);
         }
         return map;
     }

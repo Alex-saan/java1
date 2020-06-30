@@ -11,7 +11,7 @@ public class Order {
 
     public String customerId;
 
-    public LocalDateTime dateTime;
+    public LocalDateTime datetime;
 
     public List<OrderItem> items;
 
@@ -23,7 +23,7 @@ public class Order {
                 "shopId='" + shopId + '\'' +
                 ", orderId='" + orderId + '\'' +
                 ", customerId='" + customerId + '\'' +
-                ", datetime=" + dateTime +
+                ", datetime=" + datetime +
                 ", items=" + items +
                 ", sum=" + sum +
                 '}';
