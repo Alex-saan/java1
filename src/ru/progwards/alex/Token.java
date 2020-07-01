@@ -6,22 +6,14 @@ public class Token {
     String swapWords(String sentance) {
         StringTokenizer tokenizer = new StringTokenizer(sentance, " .,-!\n");
         String result = "";
-//        for (int i = 0; i < tokenizer.countTokens(); i++) {
-//            String tmp = "";
-//            String out = "";
-//            tmp = tokenizer.nextToken();
-//            out = tokenizer.nextToken() + " " + tmp;
-//            result += out + " ";
-//        }
-
         while (tokenizer.hasMoreTokens()) {
             String tmp = "";
-            String out = "";
-            tmp = tokenizer.nextToken();
-            if (tokenizer.countTokens()>0){
-                out = tokenizer.nextToken() + " " + tmp;
+            String next = "";
+            tmp = tokenizer.nextToken()+" ";
+            if (tokenizer.countTokens() > 0) {
+                next = tokenizer.nextToken()+" ";
             }
-            result += out + " ";
+            result += next + tmp;
         }
         System.out.println(result);
         return result;

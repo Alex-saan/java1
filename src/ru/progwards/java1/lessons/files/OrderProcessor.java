@@ -32,7 +32,7 @@ public class OrderProcessor {
                             localDate = LocalDateTime.ofInstant(Files.getLastModifiedTime(path).toInstant(), ZoneId.systemDefault()).toLocalDate();
                         } catch (IOException e) {
                             e.getMessage();
-                        }
+                        }System.out.println("#traceout_parse");
                         if (localDate.isAfter(start) && localDate.isBefore(finish)) {
                             try {
                                 List<String> listTmp = new ArrayList<>(Files.readAllLines(path));
@@ -49,7 +49,6 @@ public class OrderProcessor {
                                     try {
                                         orderItem.count = Integer.parseInt(item[1].trim());
                                         orderItem.price = Double.parseDouble(item[2].trim());
-                                        System.out.println("#traceout");
                                     } catch (NumberFormatException e) {
                                         e.getMessage();
                                     }
