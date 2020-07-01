@@ -5,6 +5,7 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.ZoneId;
 import java.util.*;
 
@@ -30,7 +31,7 @@ public class OrderProcessor {
                         try {
                             localDate = LocalDateTime.ofInstant(Files.getLastModifiedTime(path).toInstant(), ZoneId.systemDefault()).toLocalDate();
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            e.getMessage();
                         }
                         if (localDate.isAfter(start) && localDate.isBefore(finish)) {
                             try {
@@ -45,13 +46,16 @@ public class OrderProcessor {
                                     }
                                     OrderItem orderItem = new OrderItem();
                                     orderItem.googsName = item[0].trim();
-                                    orderItem.count = Integer.parseInt(item[1].trim());
-                                    orderItem.price = Double.parseDouble(item[2].trim());
+                                    try {
+                                        orderItem.count = Integer.parseInt(item[1].trim());
+                                        orderItem.price = Double.parseDouble(item[2].trim());
+                                    } catch (NumberFormatException e) {
+                                        e.getMessage();
+                                    }
+
                                     sumItem += orderItem.count * orderItem.price;
                                     items.add(orderItem);
-
                                 }
-
                                 Order order = new Order();
                                 String[] nameSplit = String.valueOf(path.getFileName()).split("-");
                                 order.sum = sumItem;
@@ -63,13 +67,13 @@ public class OrderProcessor {
                                 try {
                                     order.datetime = LocalDateTime.ofInstant(Files.getLastModifiedTime(path).toInstant(), ZoneId.systemDefault());
                                 } catch (IOException e) {
-                                    e.printStackTrace();
+                                    e.getMessage();
                                 }
 
                                 listIn.add(order);
 
                             } catch (IOException e) {
-                                e.printStackTrace();
+                                e.getMessage();
                             }
                         }
                     }
@@ -82,7 +86,7 @@ public class OrderProcessor {
                 }
             });
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
         return count;
     }
@@ -90,7 +94,7 @@ public class OrderProcessor {
     public List<Order> process(String shopId) {
         List<Order> result = new ArrayList();
         for (Order o : listIn) {
-            if (shopId == null || o.shopId == shopId) {
+            if (shopId == null || o.shopId.equals(shopId)) {
                 result.add(o);
             }
 
@@ -124,7 +128,8 @@ public class OrderProcessor {
         }
         return map;
     }
-    public Map<LocalDate, Double> statisticsByDay(){
+
+    public Map<LocalDate, Double> statisticsByDay() {
         Map<LocalDate, Double> map = new TreeMap<>();
         for (Order o : listIn) {
             double summa = map.containsKey(o.datetime.toLocalDate()) ? map.get(o.datetime.toLocalDate()) : 0;
@@ -135,9 +140,9 @@ public class OrderProcessor {
 
     public static void main(String[] args) {
         OrderProcessor orderProcessor = new OrderProcessor("C:\\Users\\user\\IdeaProjects\\ProgWards\\src\\ru\\progwards\\java1\\lessons\\files\\S02-P01X12-0012.csv");
-        orderProcessor.loadOrders(LocalDate.of(2020, 01, 01), LocalDate.of(2020, 10, 10), "S02");
-        //orderProcessor.statisticsByShop();
-        //orderProcessor.statisticsByGoods();
-        //orderProcessor.process("S02");
+        orderProcessor.loadOrders(LocalDate.of(2020, Month.JANUARY, 1), LocalDate.of(2020, Month.JULY, 10), null);
+        orderProcessor.statisticsByShop();
+        orderProcessor.statisticsByGoods();
+        orderProcessor.process("S02");
     }
 }
