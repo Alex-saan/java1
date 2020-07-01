@@ -49,7 +49,7 @@ public class OrderProcessor {
                                     try {
                                         orderItem.count = Integer.parseInt(item[1].trim());
                                         orderItem.price = Double.parseDouble(item[2].trim());
-                                        System.out.println("1,#traceout");
+                                        System.out.println("#traceout");
                                     } catch (NumberFormatException e) {
                                         e.getMessage();
                                     }

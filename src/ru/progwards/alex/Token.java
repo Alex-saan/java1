@@ -20,8 +20,8 @@ public class Token {
             tmp = tokenizer.nextToken();
             if (tokenizer.countTokens()>0){
                 out = tokenizer.nextToken() + " " + tmp;
-                result += out + " ";
             }
+            result += out + " ";
         }
         System.out.println(result);
         return result;
