@@ -10,7 +10,6 @@ public class FilesTest {
     String createFolder(String name) {
         Path path = Paths.get(".");
         new File(name).mkdir();
-        Path path1 = path.resolve(name);
         Path res = path.toAbsolutePath().normalize().getParent();
         return String.valueOf(res);
     }
@@ -25,7 +24,6 @@ public class FilesTest {
             return false;
         }
         return true;
-
     }
 
     public static void main(String[] args) {
