@@ -9,15 +9,18 @@ public class Token {
         while (tokenizer.hasMoreTokens()) {
             String tmp = "";
             String next = "";
-            tmp = tokenizer.nextToken()+" ";
+            tmp = tokenizer.nextToken() + " ";
             if (tokenizer.countTokens() > 0) {
-                next = tokenizer.nextToken()+" ";
+                next = tokenizer.nextToken() + " ";
             }
             result += next + tmp;
         }
         System.out.println(result);
         return result;
     }
+
+
+
 
     public static void main(String[] args) {
 //        String txt =
@@ -26,8 +29,8 @@ public class Token {
 //        StringTokenizer tokenizer = new StringTokenizer(txt, " .,");
 //        while (tokenizer.hasMoreTokens())
 //            System.out.print(tokenizer.nextToken());
-
+        //System.out.format("|%04d|%#x|%2.1f|", 2, 15, 3.25);
         Token token = new Token();
-        token.swapWords("Убитых словом, добивают молчанием. (c) Уильям Шекспир.");
+        //token.swapWords("Убитых словом, добивают молчанием. (c) Уильям Шекспир.");
     }
 }

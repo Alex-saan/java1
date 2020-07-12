@@ -18,7 +18,7 @@ public class OrderProcessor {
         this.strartPath = startPath;
     }
 
-    public int loadOrders(LocalDate start, LocalDate finish, String shopId) {
+       public int loadOrders(LocalDate start, LocalDate finish, String shopId) {
         String z = shopId == null ? "???" : shopId;
         PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:**/" + z + "-??????-????.csv");
         Path dir = Paths.get(strartPath);
@@ -27,13 +27,15 @@ public class OrderProcessor {
                 @Override
                 public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) {
                     if (pathMatcher.matches(path)) {
+
                         LocalDate localDate = null;
                         try {
                             localDate = LocalDateTime.ofInstant(Files.getLastModifiedTime(path).toInstant(), ZoneId.systemDefault()).toLocalDate();
                         } catch (IOException e) {
                             e.getMessage();
-                        }System.out.println("#traceout_parse");
+                        }
                         if (localDate.isAfter(start) && localDate.isBefore(finish)) {
+                            System.out.println("#traceout первый");
                             try {
                                 List<String> listTmp = new ArrayList<>(Files.readAllLines(path));
                                 List<OrderItem> items = new ArrayList<>();
@@ -139,8 +141,8 @@ public class OrderProcessor {
     }
 
     public static void main(String[] args) {
-        OrderProcessor orderProcessor = new OrderProcessor("C:\\Users\\user\\IdeaProjects\\ProgWards\\src\\ru\\progwards\\java1\\lessons\\files\\S02-P01X12-0012.csv");
-        orderProcessor.loadOrders(LocalDate.of(2020, Month.JANUARY, 1), LocalDate.of(2020, Month.JULY, 10), null);
+        OrderProcessor orderProcessor = new OrderProcessor("C:\\Users\\user\\IdeaProjects\\ProgWards\\src\\ru\\progwards\\java1\\lessons\\files\\");
+        orderProcessor.loadOrders(LocalDate.of(2020, Month.JANUARY, 1), LocalDate.of(2020, Month.JULY, 30), null);
         orderProcessor.statisticsByShop();
         orderProcessor.statisticsByGoods();
         orderProcessor.process("S02");
