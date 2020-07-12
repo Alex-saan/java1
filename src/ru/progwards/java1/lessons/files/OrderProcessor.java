@@ -18,10 +18,12 @@ public class OrderProcessor {
         this.strartPath = startPath;
     }
 
-       public int loadOrders(LocalDate start, LocalDate finish, String shopId) {
+    public int loadOrders(LocalDate start, LocalDate finish, String shopId) {
+        System.out.println("#traceout");
         String z = shopId == null ? "???" : shopId;
         PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:**/" + z + "-??????-????.csv");
         Path dir = Paths.get(strartPath);
+        System.out.println("#traceout 0");
         try {
             Files.walkFileTree(dir, new SimpleFileVisitor<Path>() {
                 @Override
