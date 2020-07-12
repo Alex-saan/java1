@@ -27,15 +27,16 @@ public class OrderProcessor {
                 @Override
                 public FileVisitResult visitFile(Path path, BasicFileAttributes attrs) {
                     if (pathMatcher.matches(path)) {
-
+                        System.out.println("#traceout 1");
                         LocalDate localDate = null;
                         try {
                             localDate = LocalDateTime.ofInstant(Files.getLastModifiedTime(path).toInstant(), ZoneId.systemDefault()).toLocalDate();
+                            System.out.println("#traceout 2");
                         } catch (IOException e) {
                             e.getMessage();
                         }
                         if (localDate.isAfter(start) && localDate.isBefore(finish)) {
-                            System.out.println("#traceout первый");
+                            System.out.println("#traceout 3");
                             try {
                                 List<String> listTmp = new ArrayList<>(Files.readAllLines(path));
                                 List<OrderItem> items = new ArrayList<>();
