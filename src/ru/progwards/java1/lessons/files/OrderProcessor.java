@@ -38,7 +38,7 @@ public class OrderProcessor {
                             e.getMessage();
                         }
                         if (localDate.isAfter(start) && localDate.isBefore(finish)) {
-                            System.out.println("#traceout 3");
+
                             try {
                                 List<String> listTmp = new ArrayList<>(Files.readAllLines(path));
                                 List<OrderItem> items = new ArrayList<>();
